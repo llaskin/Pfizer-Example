@@ -89,7 +89,7 @@ public class accordionTest {
         options.addArguments("--disable-gpu");
         ChromeDriver driver = new ChromeDriver(options);
 
-        eyes.setApiKey("Y7bRjY1ZkKKR9a4F1wCMNlBVyr1y6a23ckJo9I7ihQM110");
+        eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(StitchMode.CSS);
 

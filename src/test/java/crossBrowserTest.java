@@ -35,8 +35,8 @@ public class crossBrowserTest {
         // Create Eyes object with the runner, meaning it'll be a Visual Grid eyes.
         Eyes eyes = new Eyes(runner);
         // Set API key
-        eyes.setApiKey("Y7bRjY1ZkKKR9a4F1wCMNlBVyr1y6a23ckJo9I7ihQM110");
-        eyes.setLogHandler(new StdoutLogHandler(true));
+        eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
+//        eyes.setLogHandler(new StdoutLogHandler(true));
         // Create SeleniumConfiguration.
         Configuration sconf = new Configuration();
         // Set the AUT name
@@ -88,7 +88,7 @@ public class crossBrowserTest {
         eyes.setApiKey("Y7bRjY1ZkKKR9a4F1wCMNlBVyr1y6a23ckJo9I7ihQM110");
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(StitchMode.CSS);
-        eyes.setLogHandler(new StdoutLogHandler(true));
+//        eyes.setLogHandler(new StdoutLogHandler(true));
 
         eyes.open(driver, "iBrance", "iBrance Cross Browser", new RectangleSize(1200, 600));
 

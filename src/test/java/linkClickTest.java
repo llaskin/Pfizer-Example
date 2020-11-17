@@ -39,10 +39,10 @@ public class linkClickTest {
         options.addArguments("--disable-gpu");
         ChromeDriver driver = new ChromeDriver(options);
 
-        eyes.setApiKey("Y7bRjY1ZkKKR9a4F1wCMNlBVyr1y6a23ckJo9I7ihQM110");
+        eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(StitchMode.CSS);
-        eyes.setLogHandler(new StdoutLogHandler(true));
+//        eyes.setLogHandler(new StdoutLogHandler(true));
 
         eyes.open(driver, "iBrance", "iBrance crossBrowser", new RectangleSize(1200, 600));
 

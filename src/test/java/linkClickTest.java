@@ -36,7 +36,7 @@ public class linkClickTest {
 
         Eyes eyes = new Eyes(runner);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu");
+        options.addArguments("--headless","--ignore-certificate-errors");
         ChromeDriver driver = new ChromeDriver(options);
 
         eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));

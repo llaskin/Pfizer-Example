@@ -72,7 +72,7 @@ public class crossBrowserTest {
         Eyes eyes = initializeEyes(runner);
         // Create a new Webdriver
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu");
+        options.addArguments("--headless","--ignore-certificate-errors");
         ChromeDriver driver = new ChromeDriver(options);
 
         eyes.setForceFullPageScreenshot(true);

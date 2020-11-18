@@ -74,7 +74,7 @@ public class accordionTest {
         Eyes eyes = initializeEyes(runner);
         // Create a new Webdriver
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu");
+        options.addArguments("--headless","--ignore-certificate-errors");
         ChromeDriver driver = new ChromeDriver(options);
 
         eyes.setForceFullPageScreenshot(true);
@@ -91,20 +91,26 @@ public class accordionTest {
         List<WebElement> accordion = driver.findElements(By.cssSelector(".accordion-row .accordion-header"));
 
         Actions actions = new Actions(driver);
-        System.out.println("Accordion size = " + accordion.size());
+
+        eyes.check("Initial State, All Accordions Closed", Target.window().fully());
 
         for(i = 1; i < accordion.size(); i++)
         {
-            System.out.println(i);
             currentAccordion = accordion.get(i);
 
             actions.moveToElement(currentAccordion).click().perform();
-            eyes.check("Accordion open " + i, Target.window().fully());
-            System.out.println("Closing");
-            actions.moveToElement(currentAccordion).click().perform();
-            eyes.check("Accordion closed " + i, Target.window().fully());
 
         }
+        eyes.check("All Accordions Opened ", Target.window().fully());
+        System.out.println("Closing");
+        for(i = 1; i < accordion.size(); i++)
+        {
+            currentAccordion = accordion.get(i);
+            actions.moveToElement(currentAccordion).click().perform();
+        }
+        eyes.check("All Accordions Re-Closed ", Target.window().fully());
+
+
 
         eyes.closeAsync();
 

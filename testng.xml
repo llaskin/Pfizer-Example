@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="methods" thread-count="2">
+    <test name="Pfizer">
+        <classes>
+            <class name = "crossBrowserTest" />
+            <class name = "linkClickTest" />
+            <class name = "accordionTest" />
+        </classes>
+    </test>
+</suite>

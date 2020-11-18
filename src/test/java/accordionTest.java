@@ -1,5 +1,3 @@
-package test.java;
-
 import com.applitools.eyes.*;
 import com.applitools.eyes.selenium.BrowserType;
 import com.applitools.eyes.selenium.Configuration;

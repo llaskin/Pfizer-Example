@@ -1,12 +1,11 @@
-//Step 1: Load iBrance.com
-//Step 2: Validate that iBrance.com is as expected
-//Step 3: Click a link on iBrance.com ("For Newly Diagnosed")
-//Step 4: Load the link
-//Step 5: Validate that the For Newly Diagnosed page is as expected.
+package test.java;
+
 import com.applitools.eyes.*;
-import com.applitools.eyes.selenium.*;
+import com.applitools.eyes.selenium.BrowserType;
+import com.applitools.eyes.selenium.Configuration;
+import com.applitools.eyes.selenium.Eyes;
+import com.applitools.eyes.selenium.StitchMode;
 import com.applitools.eyes.selenium.fluent.Target;
-import com.applitools.eyes.visualgrid.model.DeviceName;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,11 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
 import java.util.List;
 
 public class accordionTest {
@@ -37,7 +34,7 @@ public class accordionTest {
         Eyes eyes = new Eyes(runner);
         // Set API key
         eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
-        eyes.setLogHandler(new StdoutLogHandler(true));
+        eyes.setLogHandler(new FileLogger("target/logging/accordion.log",false,true));
         // Create SeleniumConfiguration.
         Configuration sconf = new Configuration();
         // Set the AUT name

@@ -3,9 +3,10 @@
 //Step 3: Click a link on iBrance.com ("For Newly Diagnosed")
 //Step 4: Load the link
 //Step 5: Validate that the For Newly Diagnosed page is as expected.
+
 import com.applitools.eyes.EyesRunner;
+import com.applitools.eyes.FileLogger;
 import com.applitools.eyes.RectangleSize;
-import com.applitools.eyes.StdoutLogHandler;
 import com.applitools.eyes.selenium.ClassicRunner;
 import com.applitools.eyes.selenium.Eyes;
 import com.applitools.eyes.selenium.StitchMode;
@@ -15,8 +16,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class linkClickTest {
@@ -42,7 +41,7 @@ public class linkClickTest {
         eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(StitchMode.CSS);
-//        eyes.setLogHandler(new StdoutLogHandler(true));
+        eyes.setLogHandler(new FileLogger("target/logging/linkTest.log",false,true));
 
         eyes.open(driver, "iBrance", "iBrance crossBrowser", new RectangleSize(1200, 600));
 

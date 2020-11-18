@@ -3,14 +3,17 @@
 //Step 3: Click a link on iBrance.com ("For Newly Diagnosed")
 //Step 4: Load the link
 //Step 5: Validate that the For Newly Diagnosed page is as expected.
-import com.applitools.eyes.*;
-import com.applitools.eyes.selenium.*;
+import com.applitools.eyes.BatchInfo;
+import com.applitools.eyes.EyesRunner;
+import com.applitools.eyes.FileLogger;
+import com.applitools.eyes.TestResultsSummary;
+import com.applitools.eyes.selenium.BrowserType;
+import com.applitools.eyes.selenium.Configuration;
+import com.applitools.eyes.selenium.Eyes;
+import com.applitools.eyes.selenium.StitchMode;
 import com.applitools.eyes.selenium.fluent.Target;
 import com.applitools.eyes.visualgrid.model.DeviceName;
-import com.applitools.eyes.visualgrid.model.IosDeviceInfo;
-import com.applitools.eyes.visualgrid.model.IosDeviceName;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -77,7 +80,7 @@ public class crossBrowserTest {
 
         eyes.setForceFullPageScreenshot(true);
         eyes.setStitchMode(StitchMode.CSS);
-//        eyes.setLogHandler(new StdoutLogHandler(true));
+        eyes.setLogHandler(new FileLogger("target/logging/crossBrowserTest.log",false,true));
 
         eyes.open(driver);
 
